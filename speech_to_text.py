@@ -6,7 +6,6 @@ import os
 def get_voice_file(bot, message):
     file_info = bot.get_file(message.voice.file_id) # dict с инфой по файлу отправленному юзером
     downloaded_file = bot.download_file(file_info.file_path) #бинаринк аудио
-    
     ogg_path = f'voice/{message.from_user.username}.ogg'
     with open(ogg_path, 'wb') as ogg_file:
         ogg_file.write(downloaded_file)
